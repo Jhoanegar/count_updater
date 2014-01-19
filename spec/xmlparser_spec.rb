@@ -1,5 +1,5 @@
 require 'spec_helper'
-
+require 'xmlparser'
 describe XMLParser do
 
   it 'is defined' do
