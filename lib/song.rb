@@ -2,6 +2,7 @@ class Song
   attr_reader :basename, :play_count
 
   def initialize(attributes = {} )
+    @key = attributes[:key]
     @basename = filename_with_extension(attributes[:uri]) 
     @play_count = attributes[:play_count]
   end

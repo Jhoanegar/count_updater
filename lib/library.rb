@@ -10,7 +10,6 @@ class Library
   private 
 
   def read_songs(file)
-    content = Nokogiri::XML::Reader(File.read(file)) 
-    content.xpath('//dict//dict//dict//Location')
   end
+
 end
