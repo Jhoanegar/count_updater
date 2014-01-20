@@ -3,16 +3,18 @@ require 'library'
 
 describe Library do
   let(:example_library) { '/home/jhoan/count_updater/spec/lib.xml' }
-  
+  before(:each) { @lib = Library.new(example_library) } 
+
+  subject { @lib }
+
   describe "#new" do
-    it "creates the object" do 
-      expect(Library.new(example_library)).to_not be nil 
+
+    context "with a valid file" do
+      it { should_not be_nil } 
     end
-  end
- 
-  context "with a valid file" do
-    before(:each) { (Library.new(example_library)).to_not be nil }
     
   end
+ 
+    
 
 end
