@@ -1,15 +1,7 @@
-require 'nokogiri'
-require 'song'
+require 'plist'
 
 class Library
-  def initialize(path)
-    @songs = []
-    read_songs(path)
+  def initialize(file, adapter)
+    @songs = adapter.read_songs(file)
   end
-  
-  private 
-
-  def read_songs(file)
-  end
-
 end

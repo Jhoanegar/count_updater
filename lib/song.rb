@@ -1,5 +1,5 @@
 class Song
-  attr_reader :basename, :play_count
+  attr_reader :key, :basename, :play_count
 
   def initialize(attributes = {} )
     @key = attributes[:key]
