@@ -30,7 +30,7 @@ class BansheeDBAdapter
     end
   end
 
-  def find(songs, key)
-    songs.find { |song| song.key == key } || NilSong
+  def find_by_location
+    
   end
 end

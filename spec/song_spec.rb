@@ -51,3 +51,10 @@ describe Song do
 
   end
 end
+
+describe NilSong do
+  context "when creating a nil song" do
+    subject { NilSong.new }
+    it { should respond_to(:play_count) }
+  end
+end

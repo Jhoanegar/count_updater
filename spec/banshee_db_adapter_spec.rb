@@ -1,6 +1,5 @@
 require 'spec_helper'
 require 'banshee_db_adapter'
-
 describe BansheeDBAdapter do
   before(:each) do
     @adapter = BansheeDBAdapter.new
@@ -33,11 +32,10 @@ describe BansheeDBAdapter do
       keys = [] 
       @songs.each { |song| keys.push(song.key) }
       @adapter.write_songs(@songs)
-      @adapter.read_songs(TEST_DB)
-      keys.each do |key|
-        song = @adapter.find(@songs, key)
-        expect(song.play_count).to eq 0 
-      end
+      @adapter = BansheeDBAdapter.new
+      @songs = @adapter.read_songs(TEST_DB)
+
+      expect(@songs).to be_empty
     end
   end
 
