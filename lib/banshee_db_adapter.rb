@@ -1,6 +1,7 @@
 require 'sqlite3'
 require 'adapter'
-class BansheeDBAdapter < Adapter
+class BansheeDBAdapter
+  include Adapter
   SELECT_QUERY = <<-END
     SELECT TrackID, Uri, PlayCount 
     FROM CoreTracks
