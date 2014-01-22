@@ -16,3 +16,9 @@ class Song
     File.basename(uri).chomp
   end
 end
+
+class NilSong
+  def play_count
+    0
+  end
+end

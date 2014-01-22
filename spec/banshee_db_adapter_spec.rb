@@ -2,11 +2,12 @@ require 'spec_helper'
 require 'banshee_db_adapter'
 
 describe BansheeDBAdapter do
+  before(:each) do
+    @adapter = BansheeDBAdapter.new
+    @songs = @adapter.read_songs(TEST_DB)
+  end
+
   context 'with a valid database' do
-    before(:each) do
-      adapter = BansheeDBAdapter.new
-      @songs = adapter.read_songs(TEST_DB)
-    end
 
     it 'parses the correct number of songs' do
       expect(@songs).to have(2).things
@@ -24,9 +25,20 @@ describe BansheeDBAdapter do
       it 'reads the play count' do
         expect(@songs[0].play_count).to eq(2)
       end
-  
     end
+  end
 
+  context 'when updating the database' do
+    it 'resets the play_count of all the songs', :db do
+      keys = [] 
+      @songs.each { |song| keys.push(song.key) }
+      @adapter.write_songs(@songs)
+      @adapter.read_songs(TEST_DB)
+      keys.each do |key|
+        song = @adapter.find(@songs, key)
+        expect(song.play_count).to eq 0 
+      end
+    end
   end
 
 end
