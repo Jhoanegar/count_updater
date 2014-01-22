@@ -18,8 +18,7 @@ class Song
 end
 
 class NilSong 
-  attr_reader :play_count
-  def initialize
-    @play_count = 0
+  def play_count
+    0
   end
 end
