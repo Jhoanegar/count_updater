@@ -1,6 +1,6 @@
 require 'sqlite3'
-require 'song'
-class BansheeDBAdapter
+require 'adapter'
+class BansheeDBAdapter < Adapter
   SELECT_QUERY = <<-END
     SELECT TrackID, Uri, PlayCount 
     FROM CoreTracks
@@ -30,7 +30,4 @@ class BansheeDBAdapter
     end
   end
 
-  def find_by_location
-    
-  end
 end

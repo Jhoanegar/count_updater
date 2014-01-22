@@ -1,5 +1,6 @@
 require 'plist'
-class ItunesXmlAdapter
+require 'adapter'
+class ItunesXmlAdapter < Adapter
   def read_songs(file)
     songs = []
     library = Plist::parse_xml(file)
