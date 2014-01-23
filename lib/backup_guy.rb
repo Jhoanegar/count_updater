@@ -26,5 +26,3 @@ class BackupGuy
   end
 end
 
-a = BackupGuy.new backup_dir: "/home/jhoan/custom_dir/"
-a.backup("/home/jhoan/banshee.db")
